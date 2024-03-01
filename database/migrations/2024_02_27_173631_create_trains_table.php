@@ -15,30 +15,31 @@ return new class extends Migration
             $table->id();
 
             // company
-            $table->string('Company', 32);
+            $table->string('Company', 64);
+            
             // start_station
-            $table->string('Start_Station', 32);
+            $table->string('Departure_Station', 32);
 
             // arrive_station
-            $table->string('Arrive_Station', 64);
+            $table->string('Arrival_Station', 64);
 
             // start_at
-            $table->time('Start_At', 64);
+            $table->time('Departure_Time');
 
             // arrive_at
-            $table->time('Arrive_At', 32);
+            $table->time('Arrival_Time');
 
             // train_code
-            $table->string('Train_Code', 16);
+            $table->string('Train_Code', 16)->unique();
 
             // train_carriages
-            $table->integer('Train_Carriages', 16);
+            $table->unsignedTinyInteger('Train_Carriages', 16)->nullable();
 
             // right_time
-            $table->integer('Right_Time', 8);
+            $table->boolean('On_Time')->default(true);
 
             // deleted
-            $table->string('Deleted', 16);
+            $table->boolean('Deleted')->default(false);
 
             
             $table->timestamps();
