@@ -16,7 +16,7 @@ return new class extends Migration
 
             // company
             $table->string('Company', 64);
-            
+
             // start_station
             $table->string('Departure_Station', 32);
 
@@ -33,7 +33,7 @@ return new class extends Migration
             $table->string('Train_Code', 16)->unique();
 
             // train_carriages
-            $table->unsignedTinyInteger('Train_Carriages', 16)->nullable();
+            $table->string('Train_Carriages', 16)->nullable();
 
             // right_time
             $table->boolean('On_Time')->default(true);
@@ -41,7 +41,7 @@ return new class extends Migration
             // deleted
             $table->boolean('Deleted')->default(false);
 
-            
+
             $table->timestamps();
         });
     }
